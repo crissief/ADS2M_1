@@ -7,15 +7,20 @@ import java.util.Random;
 public class PessoaController {
 		private Pessoa contato;
 		private String montaTelefone;
+		private String tipoTel;
 		String[] Nome = new String[50];
 		String[] Endereco = new String[50];
-				
+		String[] Sobrenome = new String[50];
+		Random geraNumero = new Random();
+		
+		//cria e mota em uma string o teleofne
 		public void criaTelefone(){
 			int a=0, b=0, c=0, d=0, e=0, f=0, g=0;
 			int [] telefone = new int[7];
-			Random geraNumero = new Random();
 			for(int i = 0; i < 7; i++){
+				
 				telefone[i] = geraNumero.nextInt(9);
+			
 				a = telefone[0];
 				b = telefone[1];
 				c = telefone[2];
@@ -27,61 +32,135 @@ public class PessoaController {
 			montaTelefone = a+""+b+""+c+"-"+d+""+e+""+f+""+g;
 		}
 		
+		// cria o tipo de telefone casa/trabalho/celular
+		public void criarTipoTel(){
+			//parametro 0, 1 e 2
+			int tipo = geraNumero.nextInt(3);
+			
+			if(tipo == 0){
+				tipoTel = "Casa";
+			}
+			else{
+				if(tipo == 1){
+					tipoTel = "Trabalho";
+				}
+				else{
+					tipoTel = "Celular";
+				}
+			}
+		}
+		
+		//cria 50 nomes
 		public void criarNome(){
 			// cria a lista de nomes
 
-			Nome[0] = "Adriana Castro Ramos";
-			Nome[1] = "Angélica da Neiva Costa";
-			Nome[2] = "Maria Eloisa Farias";
-			Nome[3] = "Aline Cristina Rocha";
-			Nome[4] = "Roger Rodrigues Cruz";
-			Nome[5] = "Lucas de Oliveira Sousa";
-			Nome[6] = "Camila Miguel Farias";
-			Nome[7] = "Luana Elisa Stein";
-			Nome[8] = "Fabiana Dias da Hora";
-			Nome[9] = "Fernanda da Silva Borges";
-			Nome[10] = "Fernando Cesar da Silva";
-			Nome[11] = "Bruno Chiappa Ferreira";
-			Nome[12] = "Cassiano Farias";
-			Nome[13] = "Jéssica Santelmo de Souza";
-			Nome[14] = "Daphyni da Silva";
-			Nome[15] = "Igor Castilho Cabral";
-			Nome[16] = "Mário Augusto de oliveira";
-			Nome[17] = "Márcio Barreto Santana";
-			Nome[18] = "Mariana Barreta";
-			Nome[19] = "Priscila Doneles Nunes";
-			Nome[20] = "Nicole Redeker";
-			Nome[21] = "Bernardo Acevedo";
-			Nome[22] = "Sandro da Silva Guedes";
-			Nome[23] = "Vinicius Cunha Aranda";
-			Nome[24] = "Cristiane Angélica Gabriel";
-			Nome[25] = "Jessé Silveira";
-			Nome[26] = "Henrique Brum Santos";
-			Nome[27] = "Paulo Henrique Alves Junior";
-			Nome[28] = "Ana Clara Rocha";
-			Nome[29] = "Felipe Maia";
-			Nome[30] = "Arthur Vaz";
-			Nome[31] = "Guilherme Barcante Leal";
-			Nome[32] = "Gilberto Junior";
-			Nome[33] = "Renata Farias";
-			Nome[34] = "Keise Menegusso";
-			Nome[35] = "Silvana Lima de Matos";
-			Nome[36] = "Diego Alves dos Santos";
-			Nome[37] = "Luzia Thais da Silva";
-			Nome[38] = "Luciana da Silva Soares";
-			Nome[39] = "Elias Barbosa Ramos";
-			Nome[40] = "Fancisco José Macedo";
-			Nome[41] = "Josué Dias Junior";
-			Nome[42] = "Arthur Farias Chiappa";
-			Nome[43] = "Rodrigo Korb";
-			Nome[44] = "Luis Fernando Barbosa";
-			Nome[45] = "William Vieira da Silva";
-			Nome[46] = "Paulo Cesar Faria";
-			Nome[47] = "Ricardo Paz Gross";
-			Nome[48] = "Elizabeth Cabral da Silva";
-			Nome[49] = "Bruna Borne";
+			Nome[0] = "Adriana";
+			Nome[1] = "Angélica";
+			Nome[2] = "Maria Eloisa";
+			Nome[3] = "Aline Cristina";
+			Nome[4] = "Roger";
+			Nome[5] = "Lucas";
+			Nome[6] = "Camila";
+			Nome[7] = "Luana Elisa";
+			Nome[8] = "Fabiana";
+			Nome[9] = "Fernanda";
+			Nome[10] = "Fernando";
+			Nome[11] = "Bruno";
+			Nome[12] = "Cassiano";
+			Nome[13] = "Jéssica";
+			Nome[14] = "Daphyni";
+			Nome[15] = "Igor";
+			Nome[16] = "Mário Augusto";
+			Nome[17] = "Márcio";
+			Nome[18] = "Mariana";
+			Nome[19] = "Priscila";
+			Nome[20] = "Nicole";
+			Nome[21] = "Bernardo";
+			Nome[22] = "Sandro";
+			Nome[23] = "Vinicius";
+			Nome[24] = "Cristiane Angélica";
+			Nome[25] = "Jessé";
+			Nome[26] = "Henrique";
+			Nome[27] = "Paulo Henrique";
+			Nome[28] = "Ana Clara";
+			Nome[29] = "Felipe";
+			Nome[30] = "Arthur";
+			Nome[31] = "Guilherme";
+			Nome[32] = "Gilberto";
+			Nome[33] = "Renata";
+			Nome[34] = "Keise";
+			Nome[35] = "Silvana";
+			Nome[36] = "Diego";
+			Nome[37] = "Luzia Thais";
+			Nome[38] = "Luciana";
+			Nome[39] = "Elias";
+			Nome[40] = "Fancisco José";
+			Nome[41] = "Josué";
+			Nome[42] = "Arthur";
+			Nome[43] = "Rodrigo";
+			Nome[44] = "Luis Fernando";
+			Nome[45] = "William";
+			Nome[46] = "Paulo Cesar";
+			Nome[47] = "Ricardo";
+			Nome[48] = "Elizabeth";
+			Nome[49] = "Bruna";
 		}
 		
+		//cria 50 sobrenomes
+		public void criarSobrenome(){
+			Sobrenome[0] = "Castro Ramos";
+			Sobrenome[1] = "da Neiva Costa";
+			Sobrenome[2] = "Farias";
+			Sobrenome[3] = "Rocha";
+			Sobrenome[4] = "Rodrigues Cruz";
+			Sobrenome[5] = "de Oliveira Sousa";
+			Sobrenome[6] = "Miguel Farias";
+			Sobrenome[7] = "Stein";
+			Sobrenome[8] = "Dias da Hora";
+			Sobrenome[9] = "da Silva Borges";
+			Sobrenome[10] = "da Silva";
+			Sobrenome[11] = "Chiappa Ferreira";
+			Sobrenome[12] = "Farias";
+			Sobrenome[13] = "Santelmo de Souza";
+			Sobrenome[14] = "da Silva";
+			Sobrenome[15] = "Castilho Cabral";
+			Sobrenome[16] = "de oliveira";
+			Sobrenome[17] = "Barreto Santana";
+			Sobrenome[18] = "Barreta";
+			Sobrenome[19] = "Doneles Nunes";
+			Sobrenome[20] = "Redeker";
+			Sobrenome[21] = "Azevedo";
+			Sobrenome[22] = "da Silva Guedes";
+			Sobrenome[23] = "Cunha Aranda";
+			Sobrenome[24] = "Gabriel";
+			Sobrenome[25] = "Silveira";
+			Sobrenome[26] = "Brum Santos";
+			Sobrenome[27] = "Alves Junior";
+			Sobrenome[28] = "Rocha";
+			Sobrenome[29] = "Maia";
+			Sobrenome[30] = "Vaz";
+			Sobrenome[31] = "Barcante Leal";
+			Sobrenome[32] = "Junior";
+			Sobrenome[33] = "de Farias";
+			Sobrenome[34] = "Menegusso";
+			Sobrenome[35] = "Lima de Matos";
+			Sobrenome[36] = "Alves dos Santos";
+			Sobrenome[37] = "da Silva";
+			Sobrenome[38] = "da Silva Soares";
+			Sobrenome[39] = "Barbosa Ramos";
+			Sobrenome[40] = "Macedo";
+			Sobrenome[41] = "Dias Junior";
+			Sobrenome[42] = "Farias Chiappa";
+			Sobrenome[43] = "Korb";
+			Sobrenome[44] = "Barbosa";
+			Sobrenome[45] = "Vieira da Silva";
+			Sobrenome[46] = "Faria";
+			Sobrenome[47] = "Paz Gross";
+			Sobrenome[48] = "Cabral da Silva";
+			Sobrenome[49] = "Borne";	
+		}
+		
+		//cria 50 enderecos
 		public void criarEndereco(){
 		// cria a lista de enderecos
 			
@@ -137,18 +216,24 @@ public class PessoaController {
 			Endereco[49] = "Rua Washington Luiz, 640";
 		}
 		
-		public void criarContato(int i){
+		//cria um novo contato chamandos os metodos
+		public void criarContato(){
 			//cria uma nova pessoa
 			contato = new Pessoa();
 			
 			criarNome();
 			criarEndereco();
-			//cria telefone;
+			criarSobrenome();
 			criaTelefone();
+			criarTipoTel();
 			
-			contato.setNome(Nome[i]);
-			contato.setEndereco(Endereco[i]);
-			contato.setTelefone(montaTelefone);
+			int in = geraNumero.nextInt(50);
+			int is = geraNumero.nextInt(50);
+			int ie = geraNumero.nextInt(50);
+			
+			contato.setNome(Nome[in]+" "+Sobrenome[is]);
+			contato.setEndereco(Endereco[ie]);
+			contato.setTelefone(montaTelefone + " - " + tipoTel);
 		}
 
 		public void exibirContato(ContatoView view )

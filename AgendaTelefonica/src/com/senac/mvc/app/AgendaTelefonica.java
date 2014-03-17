@@ -7,8 +7,8 @@ public class AgendaTelefonica {
 		public static void main(String[] args) {
 			PessoaController controller = new PessoaController();
 			
-			for(int i = 0; i < 50; i++){
-				controller.criarContato(i);
+			for(int i = 0; i < 2500; i++){
+				controller.criarContato();
 				controller.exibirContato(new CompactView());
 			}	
 		}
