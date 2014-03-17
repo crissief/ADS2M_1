@@ -22,14 +22,9 @@ public class GameController {
 	}
 	
 	public void criaJogador(int numJogador){
-		if(numJogador >= 5){
-			out.println("Numero de jogadores inválido!");
-		}
-		else{
 			for(int i = 0; i < numJogador; i ++){
 				numJogadores[i] = jogador;
 			}
-		}		
 	}
 	
 	public void realizaJogada(int i) {
