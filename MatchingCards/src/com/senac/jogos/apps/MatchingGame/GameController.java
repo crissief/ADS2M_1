@@ -27,6 +27,11 @@ public class GameController {
 			}
 	}
 	
+	public void passaJogada(int i){
+		int guardaJogador;
+		
+	}
+	
 	public void realizaJogada(int i) {
 		if (view.getUserInput().equalsIgnoreCase("jogar")) {
 			Carta comprada = baralho.drawCarta();
