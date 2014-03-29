@@ -2,11 +2,9 @@ package com.senac.mvc.model;
 
 public class Cliente {
 	String nome;
-	int anoNasc;
 	
-	public Cliente(String nome, int anoNasc){
+	public Cliente(String nome){
 		setNome(nome);
-		setAnoNasc(anoNasc);
 	}
 	
 	public void setNome(String nome){
@@ -17,7 +15,4 @@ public class Cliente {
 		return this.nome;
 	}
 	
-	public void setAnoNasc(int anoNasc){
-		this.anoNasc = anoNasc;
-	}
 }

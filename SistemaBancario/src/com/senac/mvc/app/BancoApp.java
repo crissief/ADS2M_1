@@ -7,8 +7,7 @@ public class BancoApp {
 	public static void main(String[] args) {
 		BancoController bc = new BancoController();
 		
-		
-
+		bc.criarCliente();
 	}
 
 }

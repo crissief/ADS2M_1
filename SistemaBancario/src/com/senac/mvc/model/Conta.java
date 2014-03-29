@@ -39,7 +39,7 @@ public class Conta {
 
 	public void sacar(double valor) throws SaldoInsuficienteException{
 		if(this.saldo < valor){
-			throw new SaldoInsuficienteException("Saldo Insuficiente, tente um valor menor");
+			throw new SaldoInsuficienteException("Saldo Insuficiente, tente um valor menor!");
 		}
 		else{
 			this.saldo-=valor;
