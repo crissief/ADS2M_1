@@ -25,4 +25,13 @@ public class BancoView {
 				"\n2 - Depositar");
 		return menuC = ler.nextInt();
 	}
+	
+	public int menuContaInv(){
+		System.out.println("Selecione uma das opções: " +
+				"\n1 - Sacar" +
+				"\n2 - Depositar" +
+				"\n3- Gerar Investimento");
+		return menuC = ler.nextInt();
+		
+	}
 }

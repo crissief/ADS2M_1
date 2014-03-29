@@ -14,7 +14,7 @@ public class BancoController {
 	private int numVC = 0, numVE = 0, numVI = 0;
 	private int limite = 0;
 	private int dataCriacao = 0;
-	private double valorSaque = 0, valorDeposito = 0;
+	private double valorSaque = 0, valorDeposito = 0, valorTaxa = 0;
 	private String nomeCli = null;	
 	private int menu = 0, menuC = 0;
 	Cliente cli;
@@ -45,19 +45,9 @@ public class BancoController {
 					menu = bv.menu();
 					break;
 				case 4:
-					System.out.println("Digite o seu saldo: ");
-					saldoI = ler.nextInt();
+					criaContaInvestimento();
 					
-					System.out.println("Digite o número da sua conta: ");
-					numCI = ler.nextInt();
-					
-					System.out.println("Digite o número de verificação: ");
-					numVI = ler.nextInt();
-					
-					System.out.println("Informe a data de criação da sua conta: ");
-					dataCriacao = ler.nextInt();
-					
-					contaInv = new Investimento(saldoI, numCI, numVI, dataCriacao );
+					menu = bv.menu();
 					break;
 				default:
 					System.out.println("Opção Inválida!");					
@@ -161,7 +151,55 @@ public class BancoController {
 			
 		}
 	}
+	
+	public void criaContaInvestimento(){
+		System.out.println("Digite o seu saldo: ");
+		saldoI = ler.nextInt();
+		
+		System.out.println("Digite o número da sua conta: ");
+		numCI = ler.nextInt();
+		
+		System.out.println("Digite o número de verificação: ");
+		numVI = ler.nextInt();
+		
+		System.out.println("Informe a data de criação da sua conta: ");
+		dataCriacao = ler.nextInt();
+		
+		//cria a conta de investimento
+		contaInv = new Investimento(saldoI, numCI, numVI, dataCriacao );
+		
+		// guarda o valor escolhido no menu de saque e deposito 
+		menuC = bv.menuContaInv();	
+		
+		if(menuC == 1){
+			System.out.println("Digite o valor que deseja sacar: ");
+			valorSaque = ler.nextDouble();
+			
+			try{
+				contaInv.sacar(valorSaque);
+				System.out.println("Valor Saque: R$ " + valorSaque);
+				System.out.println("Saldo Atual: R$ " + contaInv.getSaldo());
+			}
+			catch(SaldoInsuficienteException saldoInsuf){
+				System.out.println(saldoInsuf.getMessage());							
+			}
+		}
+		else{
+			if(menuC == 2){
+				System.out.println("Digite o valor que deseja sacar: ");
+				valorDeposito = ler.nextDouble();							
+				contaInv.depositar(valorDeposito);
+				System.out.println("Saldo Atual: R$ " + contaInv.getSaldo());
+			}
+			else{
+				if(menuC == 3){
+					System.out.println("Digite o valor da taxa: ");
+					valorTaxa = ler.nextDouble();
+					contaInv.dividendos(valorTaxa);
+					System.out.println("Saldo Atual: " + contaInv.getSaldo());
+				}
+				System.out.println("Opção Inválida!");
+			}
+		}
+	}
 }
-
-
-
