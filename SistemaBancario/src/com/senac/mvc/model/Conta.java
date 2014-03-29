@@ -1,5 +1,7 @@
 package com.senac.mvc.model;
 
+import com.senac.mvc.excecao.*;
+
 public class Conta {
 	private double saldo = 0;
 	private int numConta = 0;
@@ -35,11 +37,16 @@ public class Conta {
 		this.numVerificacao = numVerificacao;
 	}
 
-	public void depositar(double valor){
-		
+	public void sacar(double valor) throws SaldoInsuficienteException{
+		if(this.saldo < valor){
+			throw new SaldoInsuficienteException("Saldo Insuficiente, tente um valor menor");
+		}
+		else{
+			this.saldo-=valor;
+		}
 	}
 	
-	public void sacar(double valor){
-		
+	public void depositar(double valor){
+		this.saldo+=valor;
 	}
 }
