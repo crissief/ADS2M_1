@@ -16,7 +16,7 @@ public class BancoController {
 	private int dataCriacao = 0;
 	private double valorSaque = 0, valorDeposito = 0;
 	private String nomeCli = null;	
-	private int menuC = 0;
+	private int menu = 0, menuC = 0;
 	Cliente cli;
 	Conta conta;
 	Especial contaEsp;
@@ -25,29 +25,24 @@ public class BancoController {
 	BancoView bv = new BancoView();
 	
 	public void verificaOpcao(){
-		int menu = bv.menu();
+		menu = bv.menu();
 		
+		while(menu != 0){
 			switch(menu){
 				case 1:
 					criaCliente();
+					
+					menu = bv.menu();
 					break;
 				case 2:
 					criarConta();
+					
+					menu = bv.menu();
 					break;
 				case 3:
-					System.out.println("Digite o seu saldo: ");
-					saldoE = ler.nextInt();
+					criaContaEspecial();
 					
-					System.out.println("Digite o número da sua conta: ");
-					numCE = ler.nextInt();
-					
-					System.out.println("Digite o número de verificação: ");
-					numVE = ler.nextInt();
-					
-					System.out.println("Digite o valor do limete da sua conta: ");
-					limite = ler.nextInt();
-					
-					contaEsp = new Especial(saldoE, numCE, numVE, limite);
+					menu = bv.menu();
 					break;
 				case 4:
 					System.out.println("Digite o seu saldo: ");
@@ -65,15 +60,17 @@ public class BancoController {
 					contaInv = new Investimento(saldoI, numCI, numVI, dataCriacao );
 					break;
 				default:
-					System.out.println("Opção Inválida!");
-					
+					System.out.println("Opção Inválida!");					
 			}	
+		}
+		System.out.println("Aplicação Encerrada!");
 	}
 	
 	public void criaCliente(){
 		System.out.println("Digite seu nome: ");
 		nomeCli = ler.nextLine();
 		
+		//cria o cliente
 		cli = new Cliente(nomeCli);
 	}
 	
@@ -87,9 +84,10 @@ public class BancoController {
 		System.out.println("Digite o número de verificação: ");
 		numVC = ler.nextInt();
 		
+		//cria a conta
 		conta = new Conta(saldoC, numCC, numVC);
 		
-		// guarda o valor escolhido no menu de sque e deposito 
+		// guarda o valor escolhido no menu de saque e deposito 
 		menuC = bv.menuConta();		
 
 		if(menuC == 1){
@@ -110,9 +108,58 @@ public class BancoController {
 				System.out.println("Digite o valor que deseja sacar: ");
 				valorDeposito = ler.nextDouble();							
 				conta.depositar(valorDeposito);
+				System.out.println("Saldo Atual: R$ " + conta.getSaldo());
+			}
+			else{
+				System.out.println("Opção Inválida!");
+			}
+			
+		}		
+	}
+	
+	public void criaContaEspecial(){
+		System.out.println("Digite o seu saldo: ");
+		saldoE = ler.nextInt();
+		
+		System.out.println("Digite o número da sua conta: ");
+		numCE = ler.nextInt();
+		
+		System.out.println("Digite o número de verificação: ");
+		numVE = ler.nextInt();
+		
+		System.out.println("Digite o valor do limete da sua conta: ");
+		limite = ler.nextInt();
+		
+		//cria a conta especial
+		contaEsp = new Especial(saldoE, numCE, numVE, limite);
+		
+		// guarda o valor escolhido no menu de saque e deposito 
+		menuC = bv.menuConta();	
+		if(menuC == 1){
+			System.out.println("Digite o valor que deseja sacar: ");
+			valorSaque = ler.nextDouble();
+			
+			try{
+				contaEsp.sacar(valorSaque);
+				System.out.println("Valor Saque: R$ " + valorSaque);
+				System.out.println("Saldo Atual: R$ " + contaEsp.getSaldo());
+			}
+			catch(SaldoInsuficienteException saldoInsuf){
+				System.out.println(saldoInsuf.getMessage());							
 			}
 		}
-		
+		else{
+			if(menuC == 2){
+				System.out.println("Digite o valor que deseja sacar: ");
+				valorDeposito = ler.nextDouble();							
+				contaEsp.depositar(valorDeposito);
+				System.out.println("Saldo Atual: R$ " + contaEsp.getSaldo());
+			}
+			else{
+				System.out.println("Opção Inválida!");
+			}
+			
+		}
 	}
 }
 

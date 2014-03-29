@@ -3,9 +3,9 @@ package com.senac.mvc.model;
 import com.senac.mvc.excecao.*;
 
 public class Conta {
-	private double saldo = 0;
-	private int numConta = 0;
-	private int numVerificacao = 0;
+	protected double saldo = 0;
+	protected int numConta = 0;
+	protected int numVerificacao = 0;
 	
 	public Conta(double saldo, int numConta, int numVerificacao){
 		setSaldo(saldo);

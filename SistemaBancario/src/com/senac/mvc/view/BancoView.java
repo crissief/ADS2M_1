@@ -9,11 +9,13 @@ public class BancoView {
 	
 	// metodo que mostra o menu de opções ao usuário
 	public int menu(){
-		System.out.println("Selecione uma das opções: " +
+		System.out.println("**********************************" +
+				"\nSelecione uma das opções: " +
 				"\n1- Criar Cliente" +
 				"\n2- Criar Conta" +
 				"\n3- Criar Conta Especial" +
-				"\n4- Criar Conta Investimento");
+				"\n4- Criar Conta Investimento" +
+				"\n**********************************");
 		return menu = ler.nextInt();
 	}
 	
