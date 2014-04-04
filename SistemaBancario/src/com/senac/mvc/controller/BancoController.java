@@ -196,9 +196,11 @@ public class BancoController {
 					System.out.println("Digite o valor da taxa: ");
 					valorTaxa = ler.nextDouble();
 					contaInv.dividendos(valorTaxa);
-					System.out.println("Saldo Atual: " + contaInv.getSaldo());
+					System.out.println("Saldo Atual: R$" + contaInv.getSaldo());
 				}
-				System.out.println("Opção Inválida!");
+				else{
+					System.out.println("Opção Inválida!");
+				}
 			}
 		}
 	}
