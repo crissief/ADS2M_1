@@ -9,7 +9,7 @@ import com.senac.mvc.view.*;
 import java.util.*;
 
 public class BancoController {
-	private int saldoC = 0, saldoE = 0, saldoI = 0;
+	private double saldoC = 0, saldoE = 0, saldoI = 0;
 	private int numCC = 0, numCE = 0, numCI = 0;
 	private int numVC = 0, numVE = 0, numVI = 0;
 	private int limite = 0;
@@ -35,17 +35,17 @@ public class BancoController {
 					menu = bv.menu();
 					break;
 				case 2:
-					criarConta();
+					tratamentoContaNormal();
 					
 					menu = bv.menu();
 					break;
 				case 3:
-					criaContaEspecial();
+					tratamentoContaEspecial();
 					
 					menu = bv.menu();
 					break;
 				case 4:
-					criaContaInvestimento();
+					tratamentoContaInvestimento();
 					
 					menu = bv.menu();
 					break;
@@ -64,9 +64,9 @@ public class BancoController {
 		cli = new Cliente(nomeCli);
 	}
 	
-	public void criarConta(){
+	public void tratamentoContaNormal(){
 		System.out.println("Digite o seu saldo: ");
-		saldoC = ler.nextInt();
+		saldoC = ler.nextDouble();
 		
 		System.out.println("Digite o número da sua conta: ");
 		numCC = ler.nextInt();
@@ -107,9 +107,9 @@ public class BancoController {
 		}		
 	}
 	
-	public void criaContaEspecial(){
+	public void tratamentoContaEspecial(){
 		System.out.println("Digite o seu saldo: ");
-		saldoE = ler.nextInt();
+		saldoE = ler.nextDouble();
 		
 		System.out.println("Digite o número da sua conta: ");
 		numCE = ler.nextInt();
@@ -152,9 +152,9 @@ public class BancoController {
 		}
 	}
 	
-	public void criaContaInvestimento(){
+	public void tratamentoContaInvestimento(){
 		System.out.println("Digite o seu saldo: ");
-		saldoI = ler.nextInt();
+		saldoI = ler.nextDouble();
 		
 		System.out.println("Digite o número da sua conta: ");
 		numCI = ler.nextInt();

@@ -1,3 +1,4 @@
+
 package com.senac.mvc.model;
 
 import com.senac.mvc.excecao.SaldoInsuficienteException;
