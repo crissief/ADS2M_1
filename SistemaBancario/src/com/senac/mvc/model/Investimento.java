@@ -20,5 +20,4 @@ public class Investimento extends Conta {
 		double valorDiv = (taxa*this.saldo)/100;
 		this.saldo = this.saldo+valorDiv;
 	}
-
 }
